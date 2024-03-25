@@ -1,0 +1,27 @@
+{% extends "rooms/layout.html" %}
+
+{% block content %}
+    <h1 class="w-full text-center">Список комнат для бронирования</h1>
+    <hr>
+    <div class="d-flex flex-row flex-wrap justify-content-between row-gap-3 px-4">
+    {% for room in rooms %}
+        <div class="card" style="width: 18rem;">
+            <img src="https://www.artmajeur.com/medias/hd/w/a/wasantha-ranjan/artwork/12272561_2_staged-1.jpg" class="card-img" alt="room">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h5 class="card-title">{{ room.number }} - {{ room.room_type.name }}</h5>
+                    <h6 class="text-black-50">{{ room.price }} BYN</h6>
+                </div>
+                <p class="card-text">{{ room.room_type.description }}</p>
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'room_detail' room.id %}" class="btn btn-primary">Инфо</a>
+                    <a href="#" class="btn btn-success">Бронь</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a href="{% url 'room_detail' room.id %}">{{ room.name }}</a>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

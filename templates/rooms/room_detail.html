@@ -1,0 +1,16 @@
+{% extends "rooms/layout.html" %}
+
+{% block content %}
+	<div class="d-flex w-full gap-3">
+        <img src="https://www.artmajeur.com/medias/hd/w/a/wasantha-ranjan/artwork/12272561_2_staged-1.jpg" class="img-thumbnail" width="400" alt="image" />
+        <div>
+            <h2>Тип комнаты - {{ room.room_type.name }}</h2>
+            <h2>Номер комнаты - {{ room.number }}</h2>
+            <h3>Цена - {{ room.price }} BYN</h3>
+            <br />
+            <p>{{ room.room_type.description }}</p>
+            <br />
+            <a href="#" class="btn btn-success">Бронь</a>
+        </div>
+    </div>
+{% endblock %}
